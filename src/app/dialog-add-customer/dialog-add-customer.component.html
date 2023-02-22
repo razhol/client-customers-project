@@ -1,0 +1,18 @@
+<h2 mat-dialog-title class = "title-dialog">Add Customer</h2>
+<mat-dialog-content class= "field-dialog-list">  
+    <input placeholder = "customerNumber" type="number" class="field-add" [ngModel] = "data?.customerNumber" (ngModelChange)="valueChange($event,'customerNumber')"/>
+    <input placeholder = "customerName" type="text" class="field-add" [ngModel] = "data?.customerName" (ngModelChange)="valueChange($event,'customerName')"/>
+    <input placeholder = "address" type="text" class="field-add" [ngModel] = "data?.address" (ngModelChange)="valueChange($event,'address')"/>
+    <select class="field-add hight-drop-down" [ngModel] = "data?.customerType" (ngModelChange)="valueChange($event,'customerType')">
+        <option value="" disabled selected>customer type</option>
+        <option [value]="'Insistent'">Insistent</option>
+        <option [value]="'Impulse'">Impulse</option>
+        <option [value]="'New'">New</option>
+      </select>
+    <input placeholder = "contentPerson" type="text" class="field-add" [ngModel] = "data?.contentPerson" (ngModelChange)="valueChange($event,'contentPerson')"/>
+    <input placeholder = "phoneNumber" type="text" class="field-add" [ngModel] = "data?.phoneNumber" (ngModelChange)="valueChange($event,'phoneNumber')"/>
+</mat-dialog-content>
+<mat-dialog-actions class = "custom-buttons">
+    <button class ="button-dialog" mat-button mat-dialog-close [mat-dialog-close] = "returnCustumerObject()">Ok</button>
+    <button class ="button-dialog" mat-button mat-dialog-close >Close</button>
+</mat-dialog-actions>

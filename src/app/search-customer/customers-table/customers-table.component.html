@@ -1,0 +1,22 @@
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Customer name</th>
+        <th>Address</th>
+        <th>Content Person</th>
+        <th>Phone number</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+           <tr *ngFor="let customer of customers">
+               <td><input type="text" [(ngModel)]="customer.customerName" [disabled]="customer.disabledEdit" /></td>
+               <td><input type="text" [(ngModel)]="customer.address" [disabled]="customer.disabledEdit" /></td>
+               <td><input type="text" [(ngModel)]="customer.contentPerson" [disabled]="customer.disabledEdit" /></td>
+               <td><input type="text" [(ngModel)]="customer.phoneNumber" [disabled]="customer.disabledEdit" /></td>
+               <td><button (click) = "updateCustomer(customer)" class="button-style">{{ customer.disabledEdit? 'Edit' : 'Save'}}</button></td>
+               <td><button (click) = "deleteCustomer(customer.customerNumber)" class="button-style">delete</button></td>
+           </tr>
+    </tbody>
+  </table>

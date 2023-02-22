@@ -1,0 +1,36 @@
+<h1 class ="title-dashboard">Customers Dashboard</h1>
+<button (click) = "openDialog()" class="next search-button padding-add"> Add Customer</button>
+<nav class="navbar row-nav">
+    <div class="row center-align">
+        <div class="from-div padding-customer-type">
+            <label>Customer Type</label>
+            <select [(ngModel)] = "selectCustomerType">
+                <option [value]="'All'">All</option>
+                <option [value]="'Insistent'">Insistent</option>
+                <option [value]="'Impulse'">Impulse</option>
+                <option [value]="'New'">New</option>
+            </select>
+        </div>
+        <div class="from-div">
+            <label>from Customer Number</label>
+            <select [(ngModel)] = "selectFromCustomer">
+                <option *ngFor="let custumerNumber of listOfCustomerNumber1" [value]="custumerNumber">
+                  {{custumerNumber}}
+                </option>
+              </select>
+        </div>
+          <div>
+            <label>to Customer Number</label>
+            <select  [(ngModel)] = "selectToCustomer">
+              <option *ngFor="let custumerNumber of listOfCustomerNumber2" [value]="custumerNumber">
+                {{custumerNumber}}
+              </option>
+            </select>
+          </div>
+    </div>
+    <a href="#" (click) = "sraechByCustumerNumbers()" class="next search-button"> Search</a>
+    <div *ngIf = "presentError" class="color-message">{{errorMsg}}</div>
+</nav>
+<ngx-spinner type="ball-beat"></ngx-spinner>
+<customers-table (presentErrorEdit) = "nullErrorArguments($event)" [customers] = "customers" (getCustumers) = "AssignCustomersFromServer()"></customers-table>
+
